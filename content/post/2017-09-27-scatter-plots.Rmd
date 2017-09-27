@@ -1,0 +1,31 @@
+---
+title: Scatter Plots
+author: Heather
+date: '2017-09-27'
+slug: scatter-plots
+categories: []
+tags: []
+---
+This is a Scatter Plot to Show Career Strikeouts and Homeruns.
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+query<-"SELECT playerID, sum(HR) As Career_HR, sum(SO) As Career_SO
+FROM Batting
+GROUP BY playerID
+HAVING sum(HR) >= 400"
+
+result <-sqldf(query)
+
+```
+
+
+```{r}
+ggplot()+
+  geom_point(data = result,aes(x=Career_SO, y= Career_HR),size=3,color="blue")+
+  ggtitle("Career Strikeouts VS Homeruns for Great Hitters")+
+  xlab("Careers Strikeouts")+
+  ylab("Career Homeruns")
+```
+
