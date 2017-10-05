@@ -1,0 +1,35 @@
+---
+title: 'Time Series '
+author: Heather
+date: '2017-10-05'
+slug: time-series
+categories:
+  - R
+tags:
+  - Time Series
+  - Visualization
+---
+
+ A time series is a series of values of a value obtained at different times.
+ 
+ 
+```{r warning=FALSE,message=FALSE}
+library(Lahman)
+library(ggplot2)
+library(sqldf)
+```
+
+```{r}
+query<-"SELECT yearID,HR
+FROM Batting
+WHERE playerID='ruthba01'"
+
+result<-sqldf(query)
+
+ggplot()+
+  geom_line(data = result,aes(x=yearID,y=HR))+
+  ggtitle("Ruth's Homerun Titles Throughout the Years")+
+  xlab("Year")+
+  ylab("Homeruns")
+```
+
