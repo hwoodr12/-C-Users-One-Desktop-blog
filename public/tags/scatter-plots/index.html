@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Visualization &middot; John Doe&#39;s blog</title>
+        <title>Scatter Plots &middot; John Doe&#39;s blog</title>
         <meta name="author">
         <meta name="description" content="The awesome blog of John Doe.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,77 +46,6 @@
         
             <article class="post">
     
-<h1><a href="/post/bar-plots/" title="Bar Plots">Bar Plots</a></h1>
-
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.05">2017.10.05</time>
-
-    &middot; Tagged in
-        
-        <a href="/tags/bar-plots">bar plots</a>, 
-        
-        <a href="/tags/visualization">visualization</a>
-        
-    
-
-</span>
-</footer>
-
-    <p>Bar Plots are bar graphs.
-library(Lahman)
-library(ggplot2)
-library(sqldf)
-query&lt;-&quot;SELECT name,HR
-FROM Teams
-WHERE yearID=1980
-ORDER BY HR&quot;
-result&lt;-sqldf(query)
-result$name&lt;-factor(result$name, levels =result$name )
-ggplot()+
-geom_bar(data =result,aes(x=name, y=HR),stat= &#39;identity&#39;,color=&quot;blue&quot;,fill=&quot;white&quot; )+
-coord_flip()+
-ylab(&quot;homeruns&quot;)+
-xlab(&quot;team&quot;)+
-ggtitle(&quot;1980 Team Homerun Distribution&quot;)&hellip;</p>
-    <a href="/post/bar-plots/" title="Bar Plots">Read more &raquo;</a>
-</article>
-
-        
-            <article class="post">
-    
-<h1><a href="/post/histograms/" title="Histograms">Histograms</a></h1>
-
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.05">2017.10.05</time>
-
-    &middot; Tagged in
-        
-        <a href="/tags/histograms">histograms</a>, 
-        
-        <a href="/tags/visualization">visualization</a>
-        
-    
-
-</span>
-</footer>
-
-    <p>Histograms are diagrams consisting of rectangles whose area is proportional to the frequency of a variable and whose width is equal to the class interval.
-library(Lahman)
-library(ggplot2)
-library(sqldf)
-query&lt;-&quot;SELECT weight
-FROM Master&quot;
-result&lt;-sqldf(query)
-ggplot()+
-geom_histogram(data = result,aes(x=weight),color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
-ggtitle(&quot;Body Weight Distribution for Baseball Players&quot;)</p>
-
-<h2 id="warning-removed-854-rows-containing-non-finite-values-stat-bin">Warning: Removed 854 rows containing non-finite values (stat_bin).</h2>
-&hellip;</p>
-    <a href="/post/histograms/" title="Histograms">Read more &raquo;</a>
-</article>
-
-        
-            <article class="post">
-    
 <h1><a href="/post/scatter-plots/" title="Scatter Plots">Scatter Plots</a></h1>
 
 <footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.05">2017.10.05</time>
@@ -145,40 +74,6 @@ ggtitle(&quot;Career Strikeouts VS Homeruns for Great Hitters&quot;)+
 xlab(&quot;Career Strikeouts&quot;)+
 ylab(&quot;Career Homeruns&quot;)&hellip;</p>
     <a href="/post/scatter-plots/" title="Scatter Plots">Read more &raquo;</a>
-</article>
-
-        
-            <article class="post">
-    
-<h1><a href="/post/time-series/" title="Time Series ">Time Series </a></h1>
-
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.05">2017.10.05</time>
-
-    &middot; Tagged in
-        
-        <a href="/tags/time-series">time series</a>, 
-        
-        <a href="/tags/visualization">visualization</a>
-        
-    
-
-</span>
-</footer>
-
-    <p>A time series is a series of values of a value obtained at different times.
-library(Lahman)
-library(ggplot2)
-library(sqldf)
-query&lt;-&quot;SELECT yearID,HR
-FROM Batting
-WHERE playerID=&#39;ruthba01&#39;&quot;
-result&lt;-sqldf(query)
-ggplot()+
-geom_line(data = result,aes(x=yearID,y=HR))+
-ggtitle(&quot;Ruth&#39;s Homerun Titles Throughout the Years&quot;)+
-xlab(&quot;Year&quot;)+
-ylab(&quot;Homeruns&quot;)&hellip;</p>
-    <a href="/post/time-series/" title="Time Series ">Read more &raquo;</a>
 </article>
 
         

@@ -47,14 +47,36 @@
             
 <h1><a href="/post/scatter-plots/" title="Scatter Plots">Scatter Plots</a></h1>
 
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.09.27">2017.09.27</time>
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.05">2017.10.05</time>
 
+    &middot; Tagged in
+        
+        <a href="/tags/scatter-plots">scatter plots</a>, 
+        
+        <a href="/tags/visualization">visualization</a>
+        
     
 
 </span>
 </footer>
 
-            
+            <p>Scatter Plots are dots that represent data values.</p>
+<pre class="r"><code>library(Lahman)
+library(ggplot2)
+library(sqldf)</code></pre>
+<pre class="r"><code>query&lt;-&quot;SELECT playerID,sum(HR) AS career_HR, sum(SO) AS career_SO
+FROM Batting 
+GROUP BY playerID 
+HAVING sum(HR)&gt;=400&quot;
+result&lt;-sqldf(query)
+
+ggplot()+
+  geom_point(data=result,aes(x=career_SO,y=career_HR),size= 3,color=&quot;blue&quot;)+
+  ggtitle(&quot;Career Strikeouts VS Homeruns for Great Hitters&quot;)+
+  xlab(&quot;Career Strikeouts&quot;)+
+  ylab(&quot;Career Homeruns&quot;)</code></pre>
+<p><img src="/post/2017-10-05-scatter-plots_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+
             <ul class="share-buttons">
     <li>Share this article:</li>
     <li>

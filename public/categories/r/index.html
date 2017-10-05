@@ -117,6 +117,39 @@ ggtitle(&quot;Body Weight Distribution for Baseball Players&quot;)</p>
         
             <article class="post">
     
+<h1><a href="/post/scatter-plots/" title="Scatter Plots">Scatter Plots</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.05">2017.10.05</time>
+
+    &middot; Tagged in
+        
+        <a href="/tags/scatter-plots">scatter plots</a>, 
+        
+        <a href="/tags/visualization">visualization</a>
+        
+    
+
+</span>
+</footer>
+
+    <p>Scatter Plots are dots that represent data values.
+library(Lahman)
+library(ggplot2)
+library(sqldf)
+query&lt;-&quot;SELECT playerID,sum(HR) AS career_HR, sum(SO) AS career_SO
+FROM Batting GROUP BY playerID HAVING sum(HR)&gt;=400&quot;
+result&lt;-sqldf(query)
+ggplot()+
+geom_point(data=result,aes(x=career_SO,y=career_HR),size= 3,color=&quot;blue&quot;)+
+ggtitle(&quot;Career Strikeouts VS Homeruns for Great Hitters&quot;)+
+xlab(&quot;Career Strikeouts&quot;)+
+ylab(&quot;Career Homeruns&quot;)&hellip;</p>
+    <a href="/post/scatter-plots/" title="Scatter Plots">Read more &raquo;</a>
+</article>
+
+        
+            <article class="post">
+    
 <h1><a href="/post/time-series/" title="Time Series ">Time Series </a></h1>
 
 <footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.05">2017.10.05</time>
